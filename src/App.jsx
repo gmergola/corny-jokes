@@ -41,7 +41,7 @@ function App() {
 
         {revealed ? (
           <button type="button" className="action" onClick={nextJoke}>
-            Another one
+            Hit me with another one
           </button>
         ) : (
           <button type="button" className="action" onClick={reveal}>
