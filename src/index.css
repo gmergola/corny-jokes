@@ -1,11 +1,11 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #f5efff;
+  --bg: #effff3;
   --border: #e5e4e7;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --accent: #16a34a;
+  --accent-bg: rgba(22, 163, 74, 0.1);
+  --accent-border: rgba(22, 163, 74, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -31,12 +31,12 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #1c1626;
-    --border: #2e303a;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --bg: #14211a;
+    --border: #2a3a30;
+    --accent: #4ade80;
+    --accent-bg: rgba(74, 222, 128, 0.15);
+    --accent-border: rgba(74, 222, 128, 0.5);
+    --social-bg: rgba(42, 58, 48, 0.5);
   }
 }
 
