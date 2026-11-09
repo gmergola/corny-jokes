@@ -50,7 +50,7 @@ function App() {
         )}
 
         <p className="groans">
-          {groans === 0 ? 'No groans yet.' : `Groans delivered: ${groans}`}
+          {groans === 0 ? 'No groans yet. Tough crowd.' : `Groans delivered: ${groans}`}
         </p>
       </section>
 
