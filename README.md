@@ -1,16 +1,38 @@
-# React + Vite
+# Corny Jokes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend-only joke teller built with React and Vite. Pick a category, read the setup, reveal the punchline, and keep count of the groans.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Joke categories: Food, Animals, Science & Nature, Everyday Life, or All
+- Switching category shows a new random joke from it
+- "Hit me with another one" never repeats the joke you just saw
+- A groan counter that goes up every time a punchline is revealed
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+The app runs at http://localhost:5173.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Scripts
+
+- `npm run dev` starts the Vite dev server
+- `npm run build` creates a production build
+- `npm run preview` serves the production build locally
+- `npm run lint` runs ESLint
+- `npx playwright test` runs the end-to-end tests in `tests/` (starts the dev server if it is not already running)
+
+## Project structure
+
+- `src/jokes.js` holds the categories and their jokes
+- `src/App.jsx` holds the UI and joke selection logic
+- `src/App.css` and `src/index.css` hold the styles
+- `tests/` holds the Playwright tests
+
+## Adding jokes
+
+Add a `{ setup, punchline }` entry to a category's `jokes` array in `src/jokes.js`. To add a category, add a new `{ id, label, jokes }` object to `categories`.
