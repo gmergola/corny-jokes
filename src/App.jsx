@@ -1,21 +1,24 @@
 import { useState } from 'react'
-import { jokes } from './jokes'
+import { ALL, categories, jokesFor } from './jokes'
 import './App.css'
 
-function pickIndex(exclude) {
+function pickIndex(list, exclude) {
+  if (list.length < 2) return 0
   let next = exclude
   while (next === exclude) {
-    next = Math.floor(Math.random() * jokes.length)
+    next = Math.floor(Math.random() * list.length)
   }
   return next
 }
 
 function App() {
-  const [index, setIndex] = useState(() => pickIndex(-1))
+  const [category, setCategory] = useState(ALL)
+  const [index, setIndex] = useState(() => pickIndex(jokesFor(ALL), -1))
   const [revealed, setRevealed] = useState(false)
   const [groans, setGroans] = useState(0)
 
-  const joke = jokes[index]
+  const list = jokesFor(category)
+  const joke = list[index]
 
   function reveal() {
     setRevealed(true)
@@ -23,19 +26,42 @@ function App() {
   }
 
   function nextJoke() {
-    setIndex((current) => pickIndex(current))
+    setIndex((current) => pickIndex(list, current))
     setRevealed(false)
   }
+
+  function chooseCategory(id) {
+    if (id === category) return
+    setCategory(id)
+    setIndex(pickIndex(jokesFor(id), -1))
+    setRevealed(false)
+  }
+
+  const options = [{ id: ALL, label: 'All' }, ...categories]
 
   return (
     <>
       <section id="center">
         <h1>Corny Jokes</h1>
 
+        <div className="categories" role="group" aria-label="Joke category">
+          {options.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              className={`category${option.id === category ? ' active' : ''}`}
+              aria-pressed={option.id === category}
+              onClick={() => chooseCategory(option.id)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+
         <div className="joke-card">
           <p className="setup">{joke.setup}</p>
           <p className="punchline" aria-live="polite">
-            {revealed ? joke.punchline : '\u00a0'}
+            {revealed ? joke.punchline : ' '}
           </p>
         </div>
 
